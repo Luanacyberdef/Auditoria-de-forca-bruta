@@ -59,7 +59,8 @@ echo -e "123456\npassword\nqwerty\nmsfadmin" > pass.txt
 ```bash
 192.168.56.102/dvwa/login.php
 ```
-**3.1 - Criar wordlists para usuários e senhas;
+**3.1 - Criar wordlists para usuários e senhas;**
+
 **3.2 - Rodar o seguinte comando:**
 ```bash
 medusa -h 192.168.56.102 -U users.txt -P pass.txt -M http \
