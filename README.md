@@ -1,5 +1,5 @@
 # 🔐 Auditoria de Credenciais com Medusa - Laboratório de Força Bruta (Kali + Metasploitable 2 + DVWA)
-O objetivo deste projeto é compreender técnicas ofensivas e refletir sobre mitigação e boas práticas de segurança nos sistemas. Para isso, foi realizado, antes de tudo, a configuração de um ambiente controlado usando Kali Linux e Metasploitable 2, com foco na execução de ataques de força bruta utilizando a ferramenta Medusa.
+O objetivo deste projeto foi compreender as técnicas ofensivas e refletir sobre mitigação e boas práticas de segurança nos sistemas. Para isso, foi realizado, antes de tudo, a configuração de um ambiente controlado usando Kali Linux e Metasploitable 2, com foco na execução de ataques de força bruta utilizando a ferramenta Medusa.
 
 ## 1 🧭 Ambiente Utilizado:
 1 - VirtualBox:
