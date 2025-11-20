@@ -34,7 +34,7 @@ O objetivo deste projeto foi compreender as técnicas ofensivas e refletir sobre
 ## 🕵️‍♂️ Cenários de Ataques:
  **1º Etapa: Escanear possiveis portas abertas e o tipo de serviço:**
    ```bash
-   nmap -sV -p 21,22,80,445,139 192.168.56.102
+   nmap -sV -p 21,22,80,445,139 coloque o IP
    ```
 * **Resultado da análise:** Porta 21 (FTP) aberta, rodando o serviço `ProFTPD`.
 
