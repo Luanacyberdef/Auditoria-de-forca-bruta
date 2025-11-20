@@ -93,39 +93,41 @@ smbclient -L //192.168.56.102 -U msfadmin
   
 ![](https://i.imgur.com/WTLoFrq.png)
 
-## 🛡️ Para Concluir: Listarei Algumas Medidas de Mitigação
-1. Fortalecer Senhas: <br>
-Use políticas rígidas de senhas: comprimento mínimo, complexidade, troca periódica e bloqueio temporário após tentativas consecutivas falhas. Isso reduz drasticamente a eficácia de força bruta e password spraying.
+## 🛡️ Para Concluir: Listarei Algumas Recomendações de Mitigação e Defesa
+**1. <u>Fortalecimento da Autenticação: </u>** <br>
+- Política de Senhas Fortes: Implementar regras que exijam senhas com alta entropia (mínimo de 12-14 caracteres, uso de maiúsculas, minúsculas, números e símbolos) para dificultar ataques baseados em dicionários comuns.
 
-2. Implementar Bloqueio de Conta (Account Lockout): <br>
-Defina limites de tentativas falhas para FTP, SMB e aplicações web. Mesmo um lockout leve (ex.: 5 tentativas) já quebra a dinâmica das ferramentas automatizadas.
+- Autenticação Multifator (MFA): Tornar obrigatório o uso de MFA (2FA) para todos os acessos externos e administrativos (SSH, VPN, Painéis Web). O MFA neutraliza a eficácia da descoberta de senha simples.
 
-3. Ativar MFA (Autenticação Multifator): <br>
-Sempre que possível, habilite MFA no login de sistemas críticos. Força bruta praticamente vira inútil quando existe um segundo fator.
+- Bloqueio de Contas (Account Lockout): Configurar o bloqueio temporário da conta de usuário após um número definido de tentativas falhas (ex: 5 tentativas em 10 minutos). Nota: Monitorar para evitar ataques de negação de serviço (DoS) contra contas.
 
-4. Restringir Exposição dos Serviços: <br>
-Desabilite serviços que não são necessários (ex.: SMB aberto em máquinas que não deveriam responder). Para os que forem necessários, troque portas padrão, aplique firewall e limite acesso por IP.
+- Hashing Robusto: Garantir que as senhas sejam armazenadas utilizando algoritmos de hashing modernos e lentos (como Argon2 ou Bcrypt) com salting, protegendo contra ataques offline caso o banco de dados seja vazado.
 
-5. Atualizar e Corrigir Sistemas: <br>
-Metasploitable é vulnerável por natureza, mas em ambientes reais, manter serviços atualizados fecha brechas que facilitam brute force, vazamentos e exploits auxiliares.
+**2. <u>Controles Técnicos de Rede e Servidor (Hardening):</u>**
+- Ferramentas de Prevenção: Monitora os logs em tempo real e bane temporariamente (via Firewall/iptables) o endereço IP de origem que exceder o limite de falhas de autenticação.
 
-6. Monitoramento e Logs de Autenticação: <br>
-Ative logs detalhados e configure alertas para tentativas repetidas de login. Sistemas de detecção (IDS/IPS) são ótimos aliados para capturar ataques em andamento.
+- Desativação de Serviços e Contas Padrão: <br>
+Desabilitar serviços não utilizados ou inseguros (como Telnet e FTP sem criptografia).
+Renomear ou desativar contas padrão de fábrica (ex: admin, root, msfadmin, guest). <br>
 
-7. Reduzir Informações de Erro: <br>
-Formulários web (como DVWA) não devem indicar se o usuário existe ou se a senha está errada. Isso dificulta enumeração e password spraying.
+- Alterar as portas padrões de serviços (ex: mover SSH da 22 para 2222) para reduzir o ruído de scanners automatizados e bots simples.
 
-8. Limitar Velocidade de Requisições: <br>
-Use rate limiting. Impor limites por IP em logins web e serviços FTP/SMB reduz a cadência dos ataques e inviabiliza ferramentas como Medusa e Hydra.
+**3. <u>Proteção para Aplicações Web (Cenário DVWA):</u>**
+- Web Application Firewall (WAF): Implementar um WAF para detectar e bloquear padrões de tráfego malicioso, incluindo tentativas massivas de login e injeções de código.
 
-9. Usar Captcha em Aplicações Web: <br>
-Um simples captcha quebra qualquer automatização de brute force em formulários — DVWA mostra como isso neutraliza a automação.
+- Rate Limiting: Configurar o servidor web (Nginx/Apache) para limitar a taxa de requisições por segundo vindas de um único IP, mitigando ataques de força bruta rápidos.
 
-10. Auditorias Regulares: <br>
-Execuções frequentes de testes de força bruta controlados ajudam a identificar configurações frágeis antes que atacantes reais as encontrem.
+- CAPTCHA: Implementar desafios (como reCAPTCHA) na tela de login após a primeira tentativa falha, impedindo a automação via ferramentas como Hydra ou Medusa.
+
+**4. <u>Monitoramento e Governança:</u>**
+- Monitoramento de Logs (SIEM): Centralizar os logs de autenticação em uma solução SIEM (Splunk, ELK Stack) para criar alertas automáticos sobre anomalias, como "Múltiplas falhas de login seguidas de um sucesso" ou "Acesso fora do horário comercial".
+
+- Princípio do Menor Privilégio: Garantir que usuários e serviços tenham apenas as permissões estritamente necessárias para suas funções.
+
+- Auditoria Periódica: Realizar testes de intrusão (Pentests) e varreduras de vulnerabilidade trimestrais para validar se as políticas de senha e bloqueio estão ativas e funcionais.
 
 ## 🔗 Compartilhe com a comunidade 🧡
 
-Por favor, se esse conteúdo te ajudou, compartilhe.
+Por favor, se esse conteúdo te ajudou, não esqueça de compartilhar 😁
 
 [![GitHub Repo stars](https://img.shields.io/badge/share%20on-twitter-03A9F4?logo=twitter)](https://twitter.com/share?url=https://github.com/Luhrodrigues45/Auditoria-de-forca-bruta) [![GitHub Repo stars](https://img.shields.io/badge/share%20on-facebook-1976D2?logo=facebook)](https://www.facebook.com/sharer/sharer.php?u=https://github.com/Luhrodrigues45/Auditoria-de-forca-bruta) [![GitHub Repo stars](https://img.shields.io/badge/share%20on-linkedin-3949AB?logo=linkedin)](https://www.linkedin.com/shareArticle?url=https://github.com/Luhrodrigues45/Auditoria-de-forca-bruta)
