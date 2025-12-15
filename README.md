@@ -1,5 +1,5 @@
 # 🔍 Relatório de Auditoria de Segurança
-Este repositório documenta uma **Auditoria de Penetração (Pentest)**, realizada em um ambiente controlado e isolado. O projeto tem **finalidade estritamente educacional**, focado na análise de risco de **serviços expostos**.
+Este repositório documenta uma **Auditoria de segurança**, realizada em um ambiente controlado e isolado. O projeto tem **finalidade estritamente educacional**, focado na análise de risco de **serviços expostos**.
 
 ## 🧩 Metodologia Utilizada
 A documentação segue o ciclo de vida completo da exploração, garantindo que cada falha identificada seja rastreável à sua solução:
