@@ -1,6 +1,14 @@
 # 🔍 Relatório de Auditoria de Segurança
 Este repositório documenta o resultado final do Desafio de Projeto da DIO. Realizado em ambiente isolado (Kali Linux vs. Metasploitable 2/DVWA), demonstra a validação de credenciais via Força Bruta (Medusa) e entrega um Relatório Técnico com Plano de Mitigação priorizado para vulnerabilidades críticas em serviços expostos (FTP, SMB, Web).
 
+<p align="center">
+  <a href="https://web.dio.me/track/santander-ciberseguranca-2025" target="_blank">
+  <img
+    src="https://img.shields.io/static/v1?label=DIO&message=Education&color=E94D5F&labelColor=202024" alt="DIO Project" />
+</p>
+    
+<br>
+
 ## 🧩 Metodologia Utilizada
 A documentação segue o ciclo de vida completo da exploração, garantindo que cada falha identificada seja rastreável à sua solução:
 1.  **Reconhecimento (Nmap/Ping):** Mapeamento inicial para identificar o alvo e os serviços expostos.
