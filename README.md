@@ -1,7 +1,5 @@
 # 🔍 Relatório de Auditoria de Segurança
-Este repositório documenta uma **Auditoria de Penetração (Pentest)** de escopo restrito, realizada em um ambiente controlado e isolado (Metasploitable 2). O projeto tem **finalidade estritamente educacional**, focado na análise de risco de **serviços expostos** (FTP, SMB, HTTP).
-
-<br>
+Este repositório documenta uma **Auditoria de Penetração (Pentest)**, realizada em um ambiente controlado e isolado. O projeto tem **finalidade estritamente educacional**, focado na análise de risco de **serviços expostos**.
 
 ## 🧩 Metodologia Utilizada
 A documentação segue o ciclo de vida completo da exploração, garantindo que cada falha identificada seja rastreável à sua solução:
@@ -197,6 +195,7 @@ medusa -h 192.168.56.102 -U users.txt -P pass.txt -M http \
 2025-11-20 10:51:16 ACCOUNT FOUND: [http] Host: 192.168.56.102 User: msfadmin Password: qwerty [SUCCESS]
 ```
 <img width="1251" height="607" alt="image" src="https://github.com/user-attachments/assets/2068f786-ab68-4490-82f5-79932d1fc090" />
+
 > A mensagem `[SUCCESS]` valida as credenciais encontradas, comprovando que a aplicação aceitou os pares `user:password` e `msfadmin:qwerty`.
 
 ### 5.3. 🛠️ Recomendações de Mitigação
