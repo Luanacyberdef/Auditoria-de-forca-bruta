@@ -327,7 +327,7 @@ Leia a política completa em: 👉 [**SECURITY.md**](./SECURITY.md)
 
 ## 🤖 Uso de IA:
 > [!NOTE]
-> Parte deste conteúdo foi elaborada com apoio de ferramentas de IA, utilizadas como auxílio na organização e redação do texto, com revisão e validação integral pelo autor.
+> Parte deste conteúdo foi elaborada com apoio de ferramentas de IA, utilizadas como auxílio na organização do texto, com revisão e validação integral pelo autor.
 
 ## 🔗 Compartilhe com a comunidade 🧡
 
