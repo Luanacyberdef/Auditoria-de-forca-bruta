@@ -24,8 +24,8 @@ A documentação segue o ciclo de vida completo da exploração, garantindo que 
 
 ## 🚪Ambiente Utilizado:
 * Virtualização: VirtualBox;
-* Sistema Atacante (auditoria): Kali Linux;
-* Sistema Alvo: Metasploitable 2 (incluindo DVWA);
+* Sistema Atacante: Kali Linux;
+* Sistema Alvo: Metasploitable 2;
 * Modo de Rede: Host-Only
   * Garante isolamento total do ambiente, impedindo tráfego para a internet real;
 - **Ferramentas Para a Exploração:**
